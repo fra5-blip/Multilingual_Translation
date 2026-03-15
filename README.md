@@ -1,6 +1,6 @@
-##Multilingual Translation Web Application
+##Multilingual Translation Web Application##
 
-#Project Overview
+#Project Overview#
 
 This project is a web-based translation application that allows users to translate short messages between different languages in real time.
 
