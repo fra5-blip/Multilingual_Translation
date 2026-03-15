@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Multilingual Translation App</title>
+
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Multilingual Translator</h1>
+
+<button id="darkModeToggle">Toggle Dark Mode</button>
+
+
+<!-- INPUT SECTION -->
+
+<div class="input-section">
+
+<textarea 
+id="inputText"
+maxlength="500"
+placeholder="Enter text to translate (max 500 characters)"
+>Hello, how are you</textarea>
+
+
+<div class="text-actions">
+
+<button id="listenInput"> Listen</button>
+
+<button id="copyInput"> Copy</button>
+
+</div>
+
+</div>
+
+
+<!-- LANGUAGE CONTROLS -->
+
+<div class="language-controls">
+
+<select id="sourceLang">
+
+<option value="auto">Detect Language</option>
+
+<option value="en" selected>English</option>
+
+<option value="fr">French</option>
+
+</select>
+
+
+<button id="switchLang"></button>
+
+
+<select id="targetLang">
+
+<option value="fr" selected>French</option>
+
+<option value="en">English</option>
+
+</select>
+
+</div>
+
+
+<!-- TRANSLATE BUTTON -->
+
+<button id="translateBtn">Translate</button>
+
+
+<!-- LOADING INDICATOR -->
+
+<div id="loading" class="loading">
+
+Translating...
+
+</div>
+
+
+<!-- OUTPUT SECTION -->
+
+<div class="output-section">
+
+<textarea
+id="outputText"
+placeholder="Translated text will appear here..."
+readonly
+></textarea>
+
+
+<div class="text-actions">
+
+<button id="listenOutput"> Listen</button>
+
+<button id="copyOutput"> Copy</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
