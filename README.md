@@ -1,6 +1,6 @@
-## Multilingual Translation Web Application
+# Multilingual Translation Web Application
 
-# Project Overview
+## Project Overview
 
 This project is a web-based translation application that allows users to translate short messages between different languages in real time.
 
@@ -10,7 +10,7 @@ Users can input text, select source and target languages, and receive translated
 
 ---
 
-Features
+## Features
 
 - Translate text between languages
 - Default translation on page load
@@ -26,20 +26,20 @@ Features
 
 ---
 
-Technologies Used
+## Technologies Used
 
 - HTML5
 - CSS3
 - JavaScript
 - Translation API (MyMemory API)
 
-API Endpoint used:
+## API Endpoint used:
 
 https://api.mymemory.translated.net/get
 
 ---
 
-How the Application Works
+## How the Application Works
 
 1. The user enters text in the input area.
 2. The user selects the source language and the target language.
@@ -47,7 +47,7 @@ How the Application Works
 4. The API returns the translated text.
 5. The translated result is displayed in the output area.
 
-Users can also:
+## Users can also:
 
 - Listen to the text using speech synthesis
 - Copy the text using clipboard functionality
@@ -55,7 +55,7 @@ Users can also:
 
 ---
 
-Project Structure
+## Project Structure
 
 translation-web-app
 │
@@ -66,7 +66,7 @@ translation-web-app
 
 ---
 
-Installation / Running the Project
+## Installation / Running the Project
 
 1. Download or clone the repository.
 
@@ -82,23 +82,14 @@ No additional setup or installation is required.
 
 ---
 
-Future Improvements
 
-- Add more language options
-- Improve UI animations
-- Add translation history
-- Integrate a more advanced translation API
-- Deploy the project online
-
----
-
-Author
+## Author
 
 Francis Lombe
 Software Engineering Student
 
 ---
 
-License
+## License
 
 This project was created for academic purposes.
