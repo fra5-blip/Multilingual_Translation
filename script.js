@@ -1,7 +1,3 @@
-/* ==============================
-   GET ELEMENTS
-================================ */
-
 const inputText = document.getElementById("inputText");
 const outputText = document.getElementById("outputText");
 
@@ -9,7 +5,7 @@ const sourceLang = document.getElementById("sourceLang");
 const targetLang = document.getElementById("targetLang");
 
 const translateBtn = document.getElementById("translateBtn");
-const switchLangBtn = document.getElementById("switchLang");
+const switchLang = document.getElementById("switchLang");
 
 const listenInput = document.getElementById("listenInput");
 const listenOutput = document.getElementById("listenOutput");
@@ -18,190 +14,115 @@ const copyInput = document.getElementById("copyInput");
 const copyOutput = document.getElementById("copyOutput");
 
 const loading = document.getElementById("loading");
-const darkBtn = document.getElementById("darkModeToggle");
+const darkToggle = document.getElementById("darkModeToggle");
 
 
-/* ==============================
-   TRANSLATE FUNCTION
-================================ */
 
 function translateText(){
 
-    const text = inputText.value.trim();
+const text = inputText.value.trim();
 
-    if(text === ""){
-        outputText.value = "";
-        return;
-    }
+if(!text){
+outputText.value = "";
+return;
+}
 
-    const langpair = `${sourceLang.value}|${targetLang.value}`;
+const url =
+`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${sourceLang.value}|${targetLang.value}`;
 
-    loading.style.display = "block";
-    outputText.value = "";
+loading.style.display = "block";
 
-    fetch("https://api.mymemory.translated.net/get", {
+fetch(url)
 
-        method:"POST",
+.then(res => res.json())
 
-        body: JSON.stringify({
-            q: text,
-            langpair: langpair
-        }),
+.then(data => {
 
-        headers:{
-            "Content-Type":"application/json"
-        }
+outputText.value = data.responseData.translatedText;
 
-    })
+})
 
-    .then(response => response.json())
+.catch(err => {
 
-    .then(data => {
+console.error(err);
+outputText.value = "Translation error.";
 
-        outputText.value = data.responseData.translatedText;
+})
 
-    })
+.finally(()=>{
 
-    .catch(error => {
+loading.style.display = "none";
 
-        console.error("Translation error:", error);
-        alert("Translation failed. Please try again.");
-
-    })
-
-    .finally(()=>{
-
-        loading.style.display = "none";
-
-    });
+});
 
 }
 
 
-/* ==============================
-   TRANSLATE BUTTON
-================================ */
 
 translateBtn.addEventListener("click", translateText);
 
 
-/* ==============================
-   DEFAULT TRANSLATION ON LOAD
-================================ */
 
-window.addEventListener("load", () => {
-
-    translateText();
-
-});
+window.addEventListener("load", translateText);
 
 
-/* ==============================
-   REAL TIME TRANSLATION (DEBOUNCE)
-================================ */
-
-let debounceTimer;
+let debounce;
 
 inputText.addEventListener("input", () => {
 
-    clearTimeout(debounceTimer);
+clearTimeout(debounce);
 
-    debounceTimer = setTimeout(() => {
+debounce = setTimeout(() => {
 
-        translateText();
+translateText();
 
-    }, 600);
-
-});
-
-
-/* ==============================
-   SWITCH LANGUAGES
-================================ */
-
-switchLangBtn.addEventListener("click", () => {
-
-    let tempLang = sourceLang.value;
-    sourceLang.value = targetLang.value;
-    targetLang.value = tempLang;
-
-    let tempText = inputText.value;
-    inputText.value = outputText.value;
-    outputText.value = tempText;
+},600);
 
 });
 
 
-/* ==============================
-   COPY TEXT
-================================ */
+switchLang.addEventListener("click", () => {
 
-function copyText(textElement){
+let tempLang = sourceLang.value;
+sourceLang.value = targetLang.value;
+targetLang.value = tempLang;
 
-    navigator.clipboard.writeText(textElement.value)
+let tempText = inputText.value;
+inputText.value = outputText.value;
+outputText.value = tempText;
 
-    .then(()=>{
+});
 
-        alert("Text copied!");
 
-    })
+function copy(textArea){
 
-    .catch(()=>{
+navigator.clipboard.writeText(textArea.value);
 
-        alert("Failed to copy text.");
-
-    });
+alert("Copied!");
 
 }
 
-copyInput.addEventListener("click", ()=>{
+copyInput.onclick = ()=> copy(inputText);
+copyOutput.onclick = ()=> copy(outputText);
 
-    copyText(inputText);
-
-});
-
-copyOutput.addEventListener("click", ()=>{
-
-    copyText(outputText);
-
-});
-
-
-/* ==============================
-   TEXT TO SPEECH
-================================ */
 
 function speak(text, lang){
 
-    if(text === "") return;
+if(!text) return;
 
-    const speech = new SpeechSynthesisUtterance(text);
+const speech = new SpeechSynthesisUtterance(text);
+speech.lang = lang;
 
-    speech.lang = lang;
-
-    window.speechSynthesis.speak(speech);
+speechSynthesis.speak(speech);
 
 }
 
-listenInput.addEventListener("click", ()=>{
-
-    speak(inputText.value, sourceLang.value);
-
-});
-
-listenOutput.addEventListener("click", ()=>{
-
-    speak(outputText.value, targetLang.value);
-
-});
+listenInput.onclick = ()=> speak(inputText.value, sourceLang.value);
+listenOutput.onclick = ()=> speak(outputText.value, targetLang.value);
 
 
-/* ==============================
-   DARK MODE
-================================ */
+darkToggle.onclick = ()=>{
 
-darkBtn.addEventListener("click", ()=>{
+document.body.classList.toggle("dark");
 
-    document.body.classList.toggle("dark");
-
-});
+};
