@@ -56,7 +56,6 @@ https://api.mymemory.translated.net/get
 ---
 
 translation-web-app
-│
 ├── index.html
 ├── style.css
 ├── script.js
