@@ -55,7 +55,7 @@ https://api.mymemory.translated.net/get
 ## Project Structure
 ---
 
-translation-web-app
+translation-web-app/
 ├── index.html
 ├── style.css
 ├── script.js
