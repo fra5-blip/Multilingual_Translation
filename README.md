@@ -56,9 +56,13 @@ https://api.mymemory.translated.net/get
 ---
 Multilingual_Translation/
 ├── index.html
+translator interface 
 ├── style.css
+responsive design 
 ├── script.js
+translator interactive 
 └── README.md
+documentation 
 
 ---
 
