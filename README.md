@@ -45,10 +45,10 @@ https://api.mymemory.translated.net/get
 
 ## Additional user actions:
 
-- 🔊 Listen to text using Text-to-Speech
-- 📋 Copy text using Clipboard API
-- 🔁 Switch source and target languages instantly
-- 🌙 Toggle Dark Mode
+- Listen to text using Text-to-Speech
+- Copy text using Clipboard API
+- Switch source and target languages instantly
+- Toggle Dark Mode
 
 ---
 
@@ -84,8 +84,8 @@ No installation or dependencies are required.
 
 ## Author
 
--Francis Lombe
--Software Engineering Student
+- Francis Lombe
+- Software Engineering Student
 
 ---
 
