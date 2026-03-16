@@ -55,13 +55,13 @@ https://api.mymemory.translated.net/get
 ## Project Structure
 ---
 Multilingual_Translation/
-├── index.html
+├── README.md
 translator interface 
 ├── style.css
 responsive design 
 ├── script.js
 translator interactive 
-└── README.md
+└── Index.html 
 documentation 
 
 ---
