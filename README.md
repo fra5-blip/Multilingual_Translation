@@ -67,7 +67,7 @@ Follow these steps to run the project locally:
 
 1. Download or clone the repository.
 
-git clone https://github.com/your-username/translation-web-app.git
+git clone https://github.com/fra5-blip/Multilingual_Translation/edit/main
 
 2. Open the project folder.
 
