@@ -67,7 +67,7 @@ Follow these steps to run the project locally:
 
 1. Download or clone the repository.
 
-git clone https://github.com/fra5-blip/Multilingual_Translation/edit/main
+https://github.com/fra5-blip/Multilingual_Translation/tree/main?tab=readme-ov-file
 
 2. Open the project folder.
 
